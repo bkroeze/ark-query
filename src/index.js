@@ -4,10 +4,11 @@ function balanceCommand (args) {
   const client = new Client(args.main);
   client.getBalance(args.account)
     .catch(e => {
-      console.log("Error", e);
+      console.log('Error', e);
     })
-    .then(balance => {
-      console.log(balance);
+    .then(response => {
+      const {entity} = response;
+      console.log(entity.account.balance/100000000);
     });
 }
 
