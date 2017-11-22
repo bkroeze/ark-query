@@ -23,6 +23,7 @@
     "espower": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-ava": "^0.18.0",
+    "gulp-babel": "^7.0.0",
     "gulp-bump": "^2.8.0",
     "gulp-documentation": "^3.2.1",
     "gulp-eslint": "^4.0.0",

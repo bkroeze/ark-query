@@ -1,5 +1,14 @@
+import Client from './client';
+
 function balanceCommand (args) {
-  console.log('balanceCommand', args);
+  const client = new Client(args.main);
+  client.getBalance(args.account)
+    .catch(e => {
+      console.log("Error", e);
+    })
+    .then(balance => {
+      console.log(balance);
+    });
 }
 
 function accountOptions (yargs) {

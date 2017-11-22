@@ -42,9 +42,9 @@ var networks = {
 /**
  * ARK client
  * @param {boolean} main true if mainnet
- * @type {[type]}
+ * @type {Object}
  */
-export class Client {
+export default class Client {
   constructor(main) {
     this.network = main ? networks.mainnet : networks.devnet;
     this.peer = null;
@@ -63,13 +63,14 @@ export class Client {
   }
 
   /**
-   * Create and return a `rest` client using the current network
+   * Call the server with the specified options;
+   * @param {Object} options for rest call
    * @return {Object} rest client
    */
-  connect () {
+  callServer (options) {
     const peer = this.getCurrentPeer();
     const headers = {
-      nethash: this.network.nethash;
+      nethash: this.network.nethash,
       version: '2.0.0',
       port: 1
     };
@@ -77,16 +78,20 @@ export class Client {
       .wrap(pathPrefix, { prefix: `http://${peer}` })
       .wrap(mime, { mime: 'application/json' })
       .wrap(defaultRequest, { method: 'GET', headers })
-      .wrap(errorCode);
+      .wrap(errorCode)(options);
   }
 
-  function getFromArk(url) {
-    return this.connect({path: url})
+  get(url) {
+    return this.callServer({path: url})
       .catch(e => {
         console.log('Error', e);
         this.getCurrentPeer(true);
         return Promise.reject(e);
       });
   }
-  
+
+  getBalance(account) {
+    return this.get(`/api/accounts?address=${account}`);
+  }
+
 }
