@@ -12,6 +12,9 @@
     ],
     "babel": "inherit"
   },
+  "bin": {
+    "arkq": "arkq.js"
+  },
   "dependencies": {
     "arkjs": "^0.2.1",
     "json2csv": "^3.11.5",

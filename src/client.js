@@ -4,6 +4,7 @@ import mime from 'rest/interceptor/mime';
 import pathPrefix from 'rest/interceptor/pathPrefix';
 import defaultRequest from 'rest/interceptor/defaultRequest';
 
+// This, and only this variable copied from ark-rpc.
 var networks = {
   devnet: {
     name: 'devnet',
@@ -81,6 +82,11 @@ export default class Client {
       .wrap(errorCode)(options);
   }
 
+  /**
+   * Perform a GET call an ARK peer.
+   * @param  {String} url endpoint
+   * @return {Promise} Server response
+   */
   get (url) {
     return this.callServer({path: url})
       .catch(e => {
@@ -90,12 +96,22 @@ export default class Client {
       });
   }
 
+  /**
+   * Get balance for account.
+   * @param  {String} account ARK account address
+   * @return {Promise} Server response
+   */
   getBalance (account) {
     return this.get(`/api/accounts/?address=${account}`);
   }
 
+  /**
+   * Get transactions for account.
+   * @param  {String} account ARK account address
+   * @param  {Number} offset delta from the oldest tx
+   * @return {Promise} Server response
+   */
   getTransactions (account, offset) {
     return this.get(`/api/transactions?offset=${offset}&orderBy=timestamp:desc&senderId=${account}&recipientId=${account}`);
   }
-
 }
