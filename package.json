@@ -6,8 +6,16 @@
   "repository": "https://github.com/bkroeze/ark-voting-profits.git",
   "author": "Bruce Kroeze",
   "license": "ISC",
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
   "dependencies": {
     "arkjs": "^0.2.1",
+    "json2csv": "^3.11.5",
+    "moment": "^2.19.2",
     "rest": "^2.0.0",
     "yargs": "^10.0.3"
   },

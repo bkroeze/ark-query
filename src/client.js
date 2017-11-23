@@ -94,4 +94,8 @@ export default class Client {
     return this.get(`/api/accounts/?address=${account}`);
   }
 
+  getTransactions (account, offset) {
+    return this.get(`/api/transactions?offset=${offset}&orderBy=timestamp:desc&senderId=${account}&recipientId=${account}`);
+  }
+
 }
