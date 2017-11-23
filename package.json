@@ -1,9 +1,9 @@
 {
-  "name": "ark-voting-profits",
+  "name": "ark-query",
   "version": "0.0.1",
-  "description": "Checks an ARK address for voting profits and makes an entry in CoinTracking for them.",
+  "description": "Library and utility for querying ARK accounts",
   "main": "index.js",
-  "repository": "https://github.com/bkroeze/ark-voting-profits.git",
+  "repository": "https://github.com/bkroeze/ark-query.git",
   "author": "Bruce Kroeze",
   "license": "ISC",
   "ava": {

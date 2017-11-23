@@ -1,9 +1,9 @@
 /*
- * Ark-Voting-Profits
- * https://github.com/bkroeze/ark-voting-profits
+ * Ark-Query
+ * https://github.com/bkroeze/ark-query
  *
  * Copyright (c) 2017 Bruce Kroeze
- * Licensed under the MIT license.
+ * Licensed under the ISC license.
  */
 
 'use strict';
