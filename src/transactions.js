@@ -9,7 +9,7 @@ import {arkTimestampToMoment} from './dates';
 export function formatTransactions (transactions) {
   const converter = t => {
     const work = {
-      timestamp: arkTimestampToMoment(t.timestamp),
+      timestamp: arkTimestampToMoment(t.timestamp).toISOString(),
       amount: t.amount / 100000000,
       fee: t.fee / 100000000,
       senderId: t.senderId

@@ -1,10 +1,14 @@
 {
   "name": "ark-query",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library and utility for querying ARK accounts",
   "main": "index.js",
   "repository": "https://github.com/bkroeze/ark-query.git",
-  "author": "Bruce Kroeze",
+  "author": {
+    "name": "Bruce Kroeze",
+    "email": "bkroeze@gmail.com",
+    "url": "https://github.com/bkroeze"
+  },
   "license": "ISC",
   "ava": {
     "require": [
